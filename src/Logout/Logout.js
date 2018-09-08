@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router';
 import SessionUtil from "../Session/SessionUtil";
 
 class Logout extends Component {

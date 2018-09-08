@@ -53,10 +53,11 @@ class Login extends Component {
 						SessionUtil.setCurrentUserId(data.user.id);
 
 						SessionUtil.validateLogin(() => {
-							console.log(SessionUtil.getSessionToken());
-
-							// TODO
 							this.setState({loginInProgress: false});
+
+							if(SessionUtil.isLoggedIn()){
+								window.location.href = "/";
+							}
 						});
 					} else if(data.hasOwnProperty("error")){
 						document.getElementById("login-error-alert").classList.remove("d-none");
