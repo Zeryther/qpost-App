@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Button, Form, Label, Input } from 'reactstrap';
+import { Button, Form, Label, Input, Alert } from 'reactstrap';
 import './Login.css';
 import Logo from '../img/qpost-blue-small.png';
+import axios from 'axios';
 
 class Login extends Component {
 	constructor(props){
@@ -9,7 +10,8 @@ class Login extends Component {
 		
 		this.state = {
 			email: "",
-			password: ""
+			password: "",
+			loginInProgress: false
 		};
 	}
 	
@@ -31,16 +33,32 @@ class Login extends Component {
 		this.setState({
 			[event.target.id]: event.target.value
 		});
-
-		console.log(event.target.id);
-		console.log(event.target.value);
 	}
 	
 	handleSubmit = event => {
 		event.preventDefault();
 		
-		if(this.validateForm()){
-			console.log("submit");
+		if(this.validateForm() && this.state.loginInProgress === false){
+			this.setState({loginInProgress: true});
+
+			axios.get("https://qpost.gigadrivegroup.com/api/token/request",{params: {email: this.state.email, password: this.state.password}})
+				.then(res => {
+					this.setState({loginInProgress: false});
+					const data = res.data;
+
+					if(data.hasOwnProperty("token")){
+						const token = data.token;
+
+						console.log(token);
+					} else if(data.hasOwnProperty("error")){
+						document.getElementById("login-error-alert").classList.remove("d-none");
+						document.getElementById("login-error-alert").innerHTML = data.error;
+
+						setTimeout(() => {
+							document.getElementById("login-error-alert").classList.add("d-none");
+						}, 5*1000);
+					}
+				});
 		}
 	}
 
@@ -54,6 +72,10 @@ class Login extends Component {
 				<div className="text-center mb-3">
 					<img src={Logo} alt="qpost"/>
 				</div>
+
+				<Alert color="danger" id="login-error-alert" className="d-none">
+					&nbsp;
+				</Alert>
 
 				<Label for="email" className="sr-only">Email</Label>
 				<Input type="text" name="email" id="email" placeholder="Email or username" onChange={this.handleChange}/>
