@@ -67,6 +67,13 @@ class Login extends Component {
 	}
 	
 	render() {
+		let year = (new Date()).getFullYear();
+
+		let copyrightNotice = "© " + year + " Gigadrive Group";
+		if(year !== 2018){
+			copyrightNotice = "© 2018-" + year + " Gigadrive Group";
+		}
+
 		return (
 			<Form onSubmit={this.handleSubmit} className="login-form">
 				<div className="text-center mb-3">
@@ -83,8 +90,10 @@ class Login extends Component {
 				<Label for="password" className="sr-only">Password</Label>
 				<Input type="password" name="password" id="password" placeholder="Password" onChange={this.handleChange}/>
 				
-				<Button type="submit" block={true} color="primary">Log in</Button>
-				<Button type="button" block={true} color="light" onClick={this.handleCreateAccount}>Create account</Button>
+				<Button type="submit" block={true} color="primary" size="lg">Log in</Button>
+				<Button type="button" block={true} color="light" onClick={this.handleCreateAccount} size="lg">Create account</Button>
+
+				<p className="mt-5 mb-3 text-muted text-center">{copyrightNotice}</p>
 			</Form>
 		);
 	}
