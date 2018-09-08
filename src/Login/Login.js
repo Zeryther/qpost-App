@@ -44,7 +44,6 @@ class Login extends Component {
 
 			axios.get("https://qpost.gigadrivegroup.com/api/token/request",{params: {email: this.state.email, password: this.state.password}})
 				.then(res => {
-					this.setState({loginInProgress: false});
 					const data = res.data;
 
 					if(data.hasOwnProperty("token")){
@@ -57,6 +56,7 @@ class Login extends Component {
 							console.log(SessionUtil.getSessionToken());
 
 							// TODO
+							this.setState({loginInProgress: false});
 						});
 					} else if(data.hasOwnProperty("error")){
 						document.getElementById("login-error-alert").classList.remove("d-none");
@@ -65,6 +65,7 @@ class Login extends Component {
 						setTimeout(() => {
 							document.getElementById("login-error-alert").classList.add("d-none");
 						}, 5*1000);
+						this.setState({loginInProgress: false});
 					}
 				});
 		}
