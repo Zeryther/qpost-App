@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import Login from './Login/Login';
 
 class App extends Component {
 	render() {
 		return (
-			<Button color="danger">test</Button>
+			<Login></Login>
 		);
 	}
 }
