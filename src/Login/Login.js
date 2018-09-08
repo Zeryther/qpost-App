@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Col, Row } from 'reactstrap';
 
 class Login extends Component {
 	constructor(props){
@@ -9,6 +9,16 @@ class Login extends Component {
 			email: "",
 			password: ""
 		};
+	}
+
+	componentDidMount(){
+		document.body.classList.add("bg-primary");
+		document.body.classList.add("text-white");
+	}
+
+	componentWillUnmount(){
+		document.body.classList.remove("bg-primary");
+		document.body.classList.remove("text-white");
 	}
 
 	validateForm(){
@@ -30,21 +40,23 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div classname="login">
-				<Form onSubmit={this.handleSubmit}>
-					<FormGroup>
-						<Label for="email">Email</Label>
-						<Input type="email" name="email" id="email" placeholder="Email"/>
-					</FormGroup>
+			<Row>
+				<Col xs={{ size: 10, offset: 1 }}>
+					<Form onSubmit={this.handleSubmit}>
+						<FormGroup>
+							<Label for="email">Email</Label>
+							<Input type="email" name="email" id="email" placeholder="Email"/>
+						</FormGroup>
 
-					<FormGroup>
-						<Label for="password">Password</Label>
-						<Input type="password" name="password" id="password" placeholder="Password"/>
-					</FormGroup>
+						<FormGroup>
+							<Label for="password">Password</Label>
+							<Input type="password" name="password" id="password" placeholder="Password"/>
+						</FormGroup>
 
-					<Button type="submit">Submit</Button>
-				</Form>
-			</div>
+						<Button type="submit">Submit</Button>
+					</Form>
+				</Col>
+			</Row>
 		);
 	}
 }
