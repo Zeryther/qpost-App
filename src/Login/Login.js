@@ -3,6 +3,7 @@ import { Button, Form, Label, Input, Alert } from 'reactstrap';
 import './Login.css';
 import Logo from '../img/qpost-blue-small.png';
 import axios from 'axios';
+import SessionUtil from '../Session/SessionUtil';
 
 class Login extends Component {
 	constructor(props){
@@ -49,7 +50,14 @@ class Login extends Component {
 					if(data.hasOwnProperty("token")){
 						const token = data.token;
 
-						console.log(token);
+						SessionUtil.setSessionToken(token.id);
+						SessionUtil.setCurrentUserId(data.user.id);
+
+						SessionUtil.validateLogin(() => {
+							console.log(SessionUtil.getSessionToken());
+
+							// TODO
+						});
 					} else if(data.hasOwnProperty("error")){
 						document.getElementById("login-error-alert").classList.remove("d-none");
 						document.getElementById("login-error-alert").innerHTML = data.error;
