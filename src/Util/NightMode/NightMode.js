@@ -11,6 +11,7 @@ class NightMode {
 
 	static setActive(active){
 		localStorage.setItem("nightMode",active === true ? "true" : "false");
+		window.location.reload();
 	}
 }
 
