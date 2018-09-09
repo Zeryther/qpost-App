@@ -19,10 +19,18 @@ class NavigationBar extends Component {
 		});
 	}
 
+	toggleNightMode = event => {
+		event.preventDefault();
+
+		NightMode.toggle();
+	}
+
 	render() {
 		let color = NightMode.isActive() ? "dark" : "light";
 		let dark = NightMode.isActive();
 		let light = !NightMode.isActive();
+
+		let nightModeLabel = NightMode.isActive() ? "Disable night mode" : "Enable night mode";
 
 		return SessionUtil.isLoggedIn() ? (
 			<Navbar color={color} dark={dark} light={light} expand={true}>
@@ -64,8 +72,8 @@ class NavigationBar extends Component {
 
 									<DropdownItem divider />
 
-									<DropdownItem>
-										Reset
+									<DropdownItem onClick={this.toggleNightMode}>
+										{nightModeLabel}
 									</DropdownItem>
 								</DropdownMenu>
 							</UncontrolledDropdown>
