@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import NavigationBar from "../NavigationBar";
 
-class HomeFeed extends Component {
+class Messages extends Component {
 	render() {
 		return (
 			<div className="home-feed">
-				<NavigationBar active="home"/>
+				<NavigationBar active="messages"/>
 			</div>
 		);
 	}
 }
 
-export default HomeFeed;
+export default Messages;

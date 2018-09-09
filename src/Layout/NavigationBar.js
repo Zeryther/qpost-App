@@ -49,15 +49,15 @@ class NavigationBar extends Component {
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/notifications" className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className={this.props.active && this.props.active === "search" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/search" className={this.props.active && this.props.active === "search" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className={this.props.active && this.props.active === "messages" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/messages" className={this.props.active && this.props.active === "messages" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 						</Nav>
 
@@ -121,5 +121,5 @@ class NavigationBar extends Component {
 	}
 }
 	
-	export default NavigationBar;
+export default NavigationBar;
 	

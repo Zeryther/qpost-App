@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import SessionUtil from './Util/Session/SessionUtil';
 import HomeFeed from './Layout/HomeFeed/HomeFeed';
 import Logout from './Util/Logout/Logout';
+import Notifications from './Layout/Notifications/Notifications';
+import Messages from './Layout/Messages/Messages';
+import Search from './Layout/Search/Search';
 
 class App extends Component {
 	constructor(props){
@@ -34,6 +37,9 @@ class App extends Component {
 				<Router>
 					<div className="router">
 						<Route path="/" exact={true} component={HomeFeed}/>
+						<Route path="/notifications" exact={true} component={Notifications}/>
+						<Route path="/search" exact={true} component={Search}/>
+						<Route path="/messages" exact={true} component={Messages}/>
 						<Route path="/logout" exact={true} component={Logout}/>
 					</div>
 				</Router>
