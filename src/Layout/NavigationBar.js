@@ -33,6 +33,8 @@ class NavigationBar extends Component {
 
 		let nightModeLabel = NightMode.isActive() ? "Disable night mode" : "Enable night mode";
 
+		let iconSize = "34px";
+
 		let selfLink = "/";
 		selfLink = selfLink.concat(SessionUtil.getCurrentUser().username);
 
@@ -43,19 +45,19 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-home mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-home mr-3" style={{fontSize: iconSize}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-bell mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-bell mr-3" style={{fontSize: iconSize}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-search mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-search mr-3" style={{fontSize: iconSize}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-envelope mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-envelope mr-3" style={{fontSize: iconSize}}></i></NavLink>
 							</NavItem>
 						</Nav>
 
