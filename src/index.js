@@ -11,6 +11,7 @@ if(NightMode.isActive()){
 	ReactDOM.render(<App />, document.getElementById("root"));
 } else {
 	require("bootstrap/dist/css/bootstrap.min.css");
+	require("./main.css");
 
 	ReactDOM.render(<App />, document.getElementById("root"));
 }
