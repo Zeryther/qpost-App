@@ -51,6 +51,8 @@ class SessionUtil {
 	}
 
 	static logout(){
+		// TODO: Tell API to trash token
+
 		localStorage.removeItem("qpostsesstoken");
 		localStorage.removeItem("qpostuserid");
 	}
