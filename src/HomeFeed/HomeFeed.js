@@ -15,6 +15,8 @@ class HomeFeed extends Component {
 			this.setState({validatingLogin: true});
 
 			SessionUtil.validateLogin(() => {
+				this.setState({validatingLogin: false});
+
 				if(!SessionUtil.isLoggedIn()){
 					window.location.href = "/";
 				}
