@@ -45,19 +45,19 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-home mr-3" style={{fontSize: iconSize}}></i></NavLink>
+								<Link to="/" className="mr-4"><i className="fas fa-home" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-bell mr-3" style={{fontSize: iconSize}}></i></NavLink>
+								<Link to="/" className="mr-4"><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-search mr-3" style={{fontSize: iconSize}}></i></NavLink>
+								<Link to="/" className="mr-4"><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i className="fas fa-envelope mr-3" style={{fontSize: iconSize}}></i></NavLink>
+								<Link to="/" className="mr-4"><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 						</Nav>
 
