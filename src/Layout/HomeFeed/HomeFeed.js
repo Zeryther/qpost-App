@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import SessionUtil from "../Util/Session/SessionUtil";
-import Navbar from "../Layout/NavigationBar";
+import SessionUtil from "../../Util/Session/SessionUtil";
+import Navbar from "../NavigationBar";
 
 class HomeFeed extends Component {
 	constructor(props){

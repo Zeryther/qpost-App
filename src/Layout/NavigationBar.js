@@ -39,26 +39,26 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<NavLink href="/"><i class="fas fa-home mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-home mr-3" style={{fontSize: "34px"}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i class="fas fa-bell mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-bell mr-3" style={{fontSize: "34px"}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i class="fas fa-search mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-search mr-3" style={{fontSize: "34px"}}></i></NavLink>
 							</NavItem>
 
 							<NavItem>
-								<NavLink href="/"><i class="fas fa-envelope mr-3" style={{fontSize: "34px"}}></i></NavLink>
+								<NavLink href="/"><i className="fas fa-envelope mr-3" style={{fontSize: "34px"}}></i></NavLink>
 							</NavItem>
 						</Nav>
 
 						<Nav className="ml-auto" navbar>
 							<UncontrolledDropdown nav inNavbar>
 								<DropdownToggle nav>
-									<i class="fas fa-user" style={{fontSize: "34px"}}></i>
+									<img className="border border-white rounded" src={SessionUtil.getCurrentUser().avatar} style={{width: "32px",height: "32px"}}/>
 								</DropdownToggle>
 
 								<DropdownMenu right>

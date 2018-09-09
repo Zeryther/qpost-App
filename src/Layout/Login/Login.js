@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Button, Form, Label, Input, Alert } from 'reactstrap';
 import './Login.css';
-import Logo from '../img/qpost-blue-small.png';
+import Logo from '../../img/qpost-blue-small.png';
 import axios from 'axios';
-import SessionUtil from '../Util/Session/SessionUtil';
+import SessionUtil from '../../Util/Session/SessionUtil';
 
 class Login extends Component {
 	constructor(props){
@@ -51,6 +51,8 @@ class Login extends Component {
 
 						SessionUtil.setSessionToken(token.id);
 						SessionUtil.setCurrentUserId(data.user.id);
+
+						SessionUtil.updateCurrentUser(data.user);
 
 						SessionUtil.validateLogin(() => {
 							this.setState({loginInProgress: false});

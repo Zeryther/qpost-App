@@ -20,6 +20,8 @@ class SessionUtil {
 					if(status !== "Token valid"){
 						this.logout();
 						console.log("Token expired");
+					} else {
+						SessionUtil.updateCurrentUser(data.user);
 					}
 				} else if(data.hasOwnProperty("error")){
 					console.error(data.error);
@@ -51,6 +53,21 @@ class SessionUtil {
 	static logout(){
 		localStorage.removeItem("qpostsesstoken");
 		localStorage.removeItem("qpostuserid");
+	}
+
+	static updateCurrentUser(user){
+		if(user.id == this.getCurrentUserId()){
+			this.currentUser = user;
+			localStorage.setItem("currentUser",JSON.stringify(user));
+		}
+	}
+
+	static getCurrentUser(){
+		if(this.currentUser){
+			return this.currentUser;
+		} else {
+			return JSON.parse(localStorage.getItem("currentUser"));
+		}
 	}
 }
 
