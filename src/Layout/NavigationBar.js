@@ -43,22 +43,56 @@ class NavigationBar extends Component {
 				<Container>
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={this.state.isOpen} navbar>
-						<Nav className="mr-auto" navbar>
-							<NavItem>
-								<Link to="/" className={this.props.active && this.props.active === "home" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-home" style={{fontSize: iconSize}}></i></Link>
-							</NavItem>
+						<Nav className="d-none d-md-flex" navbar>
+							<Link to="/" className="mr-4">
+								<div className={this.props.active && this.props.active === "home" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
 
-							<NavItem>
-								<Link to="/notifications" className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
-							</NavItem>
+							<Link to="/notifications" className="mr-4">
+								<div className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
 
-							<NavItem>
-								<Link to="/search" className={this.props.active && this.props.active === "search" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
-							</NavItem>
+							<Link to="/search" className="mr-4">
+								<div className={this.props.active && this.props.active === "search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
 
-							<NavItem>
-								<Link to="/messages" className={this.props.active && this.props.active === "messages" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
-							</NavItem>
+							<Link to="/messages" className="mr-4">
+								<div className={this.props.active && this.props.active === "messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+						</Nav>
+
+						<Nav className="d-flex d-md-none" navbar>
+							<Link to="/" className="mr-4">
+								<div className={this.props.active && this.props.active === "home" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/notifications" className="mr-4">
+								<div className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/search" className="mr-4">
+								<div className={this.props.active && this.props.active === "search" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/messages" className="mr-4">
+								<div className={this.props.active && this.props.active === "messages" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
 						</Nav>
 
 						<Nav className="ml-auto" navbar>

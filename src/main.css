@@ -5,9 +5,36 @@
 	-webkit-transition: color 300ms, border-bottom 300ms;
 }
 
+.main-nav-link-inactive,
+.main-nav-link-active {
+	text-align: center;
+}
+
 .main-nav-link-active,
 .main-nav-link-inactive:hover {
 	color: #007bff !important;
 	border-bottom: #007bff 5px solid;
 	padding-bottom: 12px;
+	margin-bottom: -10px;
+}
+
+.main-nav-link-inactive-big {
+	color: #657786 !important;
+
+	transition: color 300ms, border-bottom 300ms;
+	-webkit-transition: color 300ms, border-bottom 300ms;
+}
+
+.main-nav-link-inactive-big,
+.main-nav-link-active-big {
+	width: 85px;
+	text-align: center;
+}
+
+.main-nav-link-active-big,
+.main-nav-link-inactive-big:hover {
+	color: #007bff !important;
+	border-bottom: #007bff 5px solid;
+	padding-bottom: 12px;
+	margin-bottom: -10px;
 }

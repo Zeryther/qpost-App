@@ -4,6 +4,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import NightMode from './Util/NightMode/NightMode';
 
+require("./main.css");
+
 if(NightMode.isActive()){
 	require("./Util/NightMode/nightmode.bootstrap.min.css");
 	require("./Util/NightMode/nightmode.css");
@@ -11,7 +13,6 @@ if(NightMode.isActive()){
 	ReactDOM.render(<App />, document.getElementById("root"));
 } else {
 	require("bootstrap/dist/css/bootstrap.min.css");
-	require("./main.css");
 
 	ReactDOM.render(<App />, document.getElementById("root"));
 }

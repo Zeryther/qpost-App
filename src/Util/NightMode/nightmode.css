@@ -196,16 +196,3 @@ NEW STYLES
 
 */
 
-.main-nav-link-inactive {
-	color: #657786 !important;
-
-	transition: color 300ms, border-bottom 300ms;
-	-webkit-transition: color 300ms, border-bottom 300ms;
-}
-
-.main-nav-link-active,
-.main-nav-link-inactive:hover {
-	color: #007bff !important;
-	border-bottom: #007bff 5px solid;
-	padding-bottom: 12px;
-}
