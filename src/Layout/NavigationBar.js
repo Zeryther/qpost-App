@@ -45,19 +45,19 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 							<NavItem>
-								<Link to="/" className="mr-4"><i className="fas fa-home" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/" className={this.props.active && this.props.active === "home" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-home" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className="mr-4"><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/" className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-bell" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className="mr-4"><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/" className={this.props.active && this.props.active === "search" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-search" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 
 							<NavItem>
-								<Link to="/" className="mr-4"><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
+								<Link to="/" className={this.props.active && this.props.active === "messages" ? "main-nav-link-active mr-4" : "main-nav-link-inactive mr-4"}><i className="fas fa-envelope" style={{fontSize: iconSize}}></i></Link>
 							</NavItem>
 						</Nav>
 

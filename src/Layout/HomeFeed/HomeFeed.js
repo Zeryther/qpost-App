@@ -28,7 +28,7 @@ class HomeFeed extends Component {
 	render() {
 		return (
 			<div className="home-feed">
-				<Navbar/>
+				<Navbar active="home"/>
 			</div>
 		);
 	}
