@@ -56,7 +56,7 @@ class SessionUtil {
 	}
 
 	static updateCurrentUser(user){
-		if(user.id == this.getCurrentUserId()){
+		if(user.id === this.getCurrentUserId()){
 			this.currentUser = user;
 			localStorage.setItem("currentUser",JSON.stringify(user));
 		}
