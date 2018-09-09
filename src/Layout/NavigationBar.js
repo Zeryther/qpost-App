@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SessionUtil from "../Session/SessionUtil";
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
+import NightMode from "../Util/NightMode/NightMode";
 
 class NavigationBar extends Component {
 	constructor(props){
@@ -19,8 +20,12 @@ class NavigationBar extends Component {
 	}
 
 	render() {
+		let color = NightMode.isActive() ? "dark" : "light";
+		let dark = NightMode.isActive();
+		let light = !NightMode.isActive();
+
 		return SessionUtil.isLoggedIn() ? (
-			<Navbar color="light" light expand={true}>
+			<Navbar color={color} dark={dark} light={light} expand={true}>
 				<Container>
 					<NavbarBrand href="/">reactstrap</NavbarBrand>
 					<NavbarToggler onClick={this.toggle} />
