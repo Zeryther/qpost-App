@@ -6,6 +6,28 @@ import HomeFeed from './Layout/HomeFeed/HomeFeed';
 import Logout from './Util/Logout/Logout';
 
 class App extends Component {
+	constructor(props){
+		super(props);
+		
+		this.state = {
+			validatingLogin: false
+		};
+	}
+
+	componentWillMount(){
+		if(this.state.validatingLogin === false){
+			this.setState({validatingLogin: true});
+
+			SessionUtil.validateLogin(() => {
+				this.setState({validatingLogin: false});
+
+				if(!SessionUtil.isLoggedIn()){
+					window.location.href = "/";
+				}
+			});
+		}
+	}
+
 	render() {
 		if(SessionUtil.isLoggedIn()){
 			return (
