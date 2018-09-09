@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SessionUtil from "../Session/SessionUtil";
+import SessionUtil from "../Util/Session/SessionUtil";
 import Navbar from "../Layout/NavigationBar";
 
 class HomeFeed extends Component {
@@ -29,7 +29,6 @@ class HomeFeed extends Component {
 		return (
 			<div className="home-feed">
 				<Navbar/>
-				asd
 			</div>
 		);
 	}

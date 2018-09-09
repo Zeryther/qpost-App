@@ -3,7 +3,7 @@ import { Button, Form, Label, Input, Alert } from 'reactstrap';
 import './Login.css';
 import Logo from '../img/qpost-blue-small.png';
 import axios from 'axios';
-import SessionUtil from '../Session/SessionUtil';
+import SessionUtil from '../Util/Session/SessionUtil';
 
 class Login extends Component {
 	constructor(props){

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Login from './Login/Login';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SessionUtil from './Session/SessionUtil';
+import SessionUtil from './Util/Session/SessionUtil';
 import HomeFeed from './HomeFeed/HomeFeed';
 import Logout from './Logout/Logout';
 
