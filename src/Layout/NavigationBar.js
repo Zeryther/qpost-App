@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SessionUtil from "../Util/Session/SessionUtil";
 import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
 import NightMode from "../Util/NightMode/NightMode";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 class NavigationBar extends Component {
@@ -45,25 +46,25 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="d-none d-md-flex" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.props.active && this.props.active === "home" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.props.active && this.props.active === "search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.props.active && this.props.active === "messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
@@ -71,25 +72,25 @@ class NavigationBar extends Component {
 
 						<Nav className="d-flex d-md-none" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.props.active && this.props.active === "home" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active" : "main-nav-link-inactive"}>
 									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.props.active && this.props.active === "notifications" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active" : "main-nav-link-inactive"}>
 									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.props.active && this.props.active === "search" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active" : "main-nav-link-inactive"}>
 									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.props.active && this.props.active === "messages" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active" : "main-nav-link-inactive"}>
 									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
@@ -153,6 +154,10 @@ class NavigationBar extends Component {
 			</Navbar>
 		) : null;
 	}
+}
+
+NavigationBar.contextTypes = {
+	router: PropTypes.object
 }
 	
 export default NavigationBar;

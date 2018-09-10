@@ -8,6 +8,7 @@ import Notifications from './Layout/Notifications/Notifications';
 import Messages from './Layout/Messages/Messages';
 import Search from './Layout/Search/Search';
 import Profile from './Layout/Profile/Profile';
+import NavigationBar from './Layout/NavigationBar';
 
 class App extends Component {
 	constructor(props){
@@ -37,6 +38,8 @@ class App extends Component {
 			return (
 				<Router>
 					<div className="router">
+						<NavigationBar/>
+
 						<Switch>
 							<Route path="/" exact={true} component={HomeFeed}/>
 							<Route path="/notifications" exact={true} component={Notifications}/>
@@ -51,9 +54,7 @@ class App extends Component {
 		} else {
 			return (
 				<Router>
-					<div className="router">
-						<Route path="/" exact={true} component={Login}/>
-					</div>
+					<Route path="/" exact={true} component={Login}/>
 				</Router>
 			);
 		}

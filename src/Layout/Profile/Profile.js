@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import NavigationBar from "../NavigationBar";
 import { Container } from "reactstrap";
 import axios from 'axios';
 import SessionUtil from "../../Util/Session/SessionUtil";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Profile extends Component {
 	constructor(props){
@@ -19,9 +18,12 @@ class Profile extends Component {
 		this.fetch();
 	}
 
-	componentDidUpdate(prevProps, prevState, snapshot){
-		if(prevProps.match.params.query !== this.props.match.params.query){
-			this.setState({userMatch: prevProps.match.params.query,user: null});
+	componentDidUpdate(prevProps){
+		if(this.props.location !== prevProps.location){
+			this.state = {
+				userMatch: this.props.match.params.query,
+				user: null
+			};
 
 			this.fetch();
 		}
@@ -43,8 +45,6 @@ class Profile extends Component {
 		if(this.state.user !== null){
 			return (
 				<div className="profile">
-					<NavigationBar/>
-
 					<Link to="/Zeryther">Zeryther</Link>
 					<Link to="/rex2go">rex2go</Link>
 
@@ -54,8 +54,6 @@ class Profile extends Component {
 		} else {
 			return (
 				<div className="profile">
-					<NavigationBar/>
-	
 					<Container className="mt-3">
 						<div className="text-center">
 							<i className="fas fa-spinner fa-pulse" style={{fontSize: "48px"}}></i>
@@ -67,4 +65,4 @@ class Profile extends Component {
 	}
 }
 
-export default Profile;
+export default withRouter(Profile);
