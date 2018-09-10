@@ -4,6 +4,7 @@ import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownTog
 import NightMode from "../Util/NightMode/NightMode";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import VerifiedCheck from "./Profile/VerifiedCheck";
 
 class NavigationBar extends Component {
 	constructor(props){
@@ -131,7 +132,7 @@ class NavigationBar extends Component {
 								<DropdownMenu right className="fade">
 									<Link to={selfLink} className="dropdown-item">
 										<div className="font-weight-bold" style={{fontSize: "21px"}}>
-											{SessionUtil.getCurrentUser().displayName}
+											{SessionUtil.getCurrentUser().displayName}<VerifiedCheck status={SessionUtil.getCurrentUser().verified}/>
 										</div>
 
 										<div className="text-muted" style={{marginTop: "-8px"}}>
