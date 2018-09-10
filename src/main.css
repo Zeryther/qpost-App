@@ -35,8 +35,29 @@
 	border-bottom-color: #007bff !important;
 }
 
+.main-nav-link-inactive-tiny {
+	color: #657786 !important;
+
+	transition: color 300ms, border-bottom-color 300ms;
+	-webkit-transition: color 300ms, border-bottom-color 300ms;
+}
+
+.main-nav-link-inactive-tiny,
+.main-nav-link-active-tiny {
+	width: 45px;
+	text-align: center;
+}
+
+.main-nav-link-active-tiny,
+.main-nav-link-inactive-tiny:hover {
+	color: #007bff !important;
+	border-bottom-color: #007bff !important;
+}
+
 .main-nav-link-active-big,
 .main-nav-link-inactive-big,
+.main-nav-link-active-tiny,
+.main-nav-link-inactive-tiny,
 .main-nav-link-active,
 .main-nav-link-inactive {
 	margin-bottom: -10px;

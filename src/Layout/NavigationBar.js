@@ -70,27 +70,53 @@ class NavigationBar extends Component {
 							</Link>
 						</Nav>
 
-						<Nav className="d-flex d-md-none" navbar>
+						<Nav className="d-none d-sm-flex d-md-none" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
 									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active" : "main-nav-link-inactive"}>
+								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+						</Nav>
+
+						<Nav className="d-flex d-sm-none" navbar>
+							<Link to="/" className="mr-4">
+								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/notifications" className="mr-4">
+								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/search" className="mr-4">
+								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								</div>
+							</Link>
+
+							<Link to="/messages" className="mr-4">
+								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
 									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
 								</div>
 							</Link>
