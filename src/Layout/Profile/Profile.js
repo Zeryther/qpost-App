@@ -102,6 +102,12 @@ class Profile extends Component {
 										</div>
 
 										<div className="mt-1">
+											<Link to={"/" + this.state.user.username}>
+												<span className="font-weight-bold">{this.state.user.posts}</span> Post{this.state.user.posts != 1 ? "s" : ""}
+											</Link>
+
+											<span className="mx-1">•</span>
+
 											<Link to={"/" + this.state.user.username + "/following"}>
 												<span className="font-weight-bold">{this.state.user.following}</span> Following
 											</Link>
