@@ -4,6 +4,7 @@ import axios from 'axios';
 import SessionUtil from "../../Util/Session/SessionUtil";
 import { Link, withRouter } from "react-router-dom";
 import VerifiedCheck from "./VerifiedCheck";
+import FollowButton from "./FollowButton";
 
 class Profile extends Component {
 	constructor(props){
@@ -77,7 +78,7 @@ class Profile extends Component {
 												<h3 className="mb-0">{this.state.user.displayName}<VerifiedCheck status={this.state.user.verified}/></h3>
 												<p className="text-muted mb-0">@{this.state.user.username}</p>
 
-												<div>follow button</div>
+												<FollowButton user={this.state.user} className="mt-3"/>
 											</div>
 										</div>
 
