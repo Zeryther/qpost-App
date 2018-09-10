@@ -18,8 +18,7 @@ class FollowButton extends Component {
 	};
 
 	render() {
-		console.log(SessionUtil.getCurrentUser().id);
-		console.log(this.state.user.id);
+		SessionUtil.updateCurrentUser(this.state.user);
 
 		if(this.state.user.id === SessionUtil.getCurrentUser().id){
 			// EDIT PROFILE
