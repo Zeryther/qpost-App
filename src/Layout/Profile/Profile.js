@@ -66,7 +66,7 @@ class Profile extends Component {
 
 			return (
 				<div className="profile">
-					<Container className="mt-1">
+					<Container className="mt-3">
 						<Row>
 							<Col xs="12" lg="8">
 								<Card className="mb-2">
