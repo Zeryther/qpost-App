@@ -11,7 +11,8 @@ class Profile extends Component {
 		super(props);
 
 		this.state = {
-			user: null
+			user: null,
+			doesNotExist: false
 		};
 	}
 
@@ -30,7 +31,7 @@ class Profile extends Component {
 		}*/
 
 		if(this.props.match.params.query !== prevProps.match.params.query){
-			this.setState({user: null});
+			this.setState({user: null, doesNotExist: false});
 			this.fetch();
 		}
 	}
@@ -43,6 +44,8 @@ class Profile extends Component {
 			if(user && user.hasOwnProperty("id")){
 				SessionUtil.updateCurrentUser(user);
 				this.setState({user: user});
+			} else {
+				this.setState({user: null,doesNotExist: true});
 			}
 		});
 	}
@@ -156,6 +159,17 @@ class Profile extends Component {
 					</Container>
 				</div>
 			)
+		} else if(this.state.doesNotExist === true){
+			return (
+				<div className="profile">
+					<Container className="mt-1">
+						<Alert style={{color: "#d7d8d8",backgroundColor: "#1d1e1f",borderColor: "#000"}}>
+							<h3>Not found</h3>
+							<p className="my-0">This account does not exist.</p>
+						</Alert>
+					</Container>
+				</div>
+			);
 		} else {
 			return (
 				<div className="profile">
