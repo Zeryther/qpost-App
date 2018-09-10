@@ -20,10 +20,10 @@ class Profile extends Component {
 
 	componentDidUpdate(prevProps){
 		if(this.props.location !== prevProps.location){
-			this.state = {
+			this.setState({
 				userMatch: this.props.match.params.query,
 				user: null
-			};
+			});
 
 			this.fetch();
 		}
