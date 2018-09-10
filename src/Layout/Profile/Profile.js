@@ -140,12 +140,12 @@ class Profile extends Component {
 											<div className="d-inline-block">
 												{this.state.user.followersYouKnow.map((user,i) => {
 													SessionUtil.updateCurrentUser(this.state.user);
-													
-													<div className="float-left mt-1 mr-1">
+
+													return (<div className="float-left mt-1 mr-1">
 														<Link to={"/" + user.username} className="clearUnderline">
 															<img src={user.avatar} className="rounded" style={{width: "56px",height: "56px"}} alt={user.displayName + " (@" + user.username + ")"}/>
 														</Link>
-													</div>
+													</div>)
 												})}
 											</div>
 										</CardBody>
