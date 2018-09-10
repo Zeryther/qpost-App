@@ -9,7 +9,6 @@ class Profile extends Component {
 		super(props);
 
 		this.state = {
-			userMatch: this.props.match.params.query,
 			user: null
 		};
 	}
@@ -19,18 +18,23 @@ class Profile extends Component {
 	}
 
 	componentDidUpdate(prevProps){
-		if(this.props.location !== prevProps.location){
+		/*if(this.props.location !== prevProps.location){
 			this.setState({
-				userMatch: this.props.match.params.query,
+				userMatch: window.location.pathname.substr(1),
 				user: null
 			});
 
+			this.fetch();
+		}*/
+
+		if(this.props.match.params.query !== prevProps.match.params.query){
+			this.setState({user: null});
 			this.fetch();
 		}
 	}
 
 	fetch = () => {
-		axios.get("https://qpost.gigadrivegroup.com/api/user/info",{params: {token: SessionUtil.getSessionToken(), user: this.state.userMatch}})
+		axios.get("https://qpost.gigadrivegroup.com/api/user/info",{params: {token: SessionUtil.getSessionToken(), user: this.props.match.params.query}})
 		.then(res => {
 			const user = res.data;
 
