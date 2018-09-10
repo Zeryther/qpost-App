@@ -111,7 +111,7 @@ class Profile extends Component {
 								</Card>
 
 								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
-									<Card className="mb-2">
+									<Card className="mb-2 d-flex d-lg-none">
 										<CardBody>
 											<h6 class="my-0"><i className="far fa-user text-muted"></i> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
 
@@ -130,7 +130,23 @@ class Profile extends Component {
 							</Col>
 
 							<Col lg="4" className="d-none d-lg-flex">
-								right
+								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
+									<Card className="mb-2">
+										<CardBody>
+											<h6 class="my-0"><i className="far fa-user text-muted"></i> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
+
+											<div className="d-inline-block">
+												{this.state.user.followersYouKnow.map((user,i) =>
+													<div className="float-left mt-1 mr-1">
+														<Link to={"/" + user.username} className="clearUnderline">
+															<img src={user.avatar} className="rounded" style={{width: "56px",height: "56px"}} alt={user.displayName + " (@" + user.username + ")"}/>
+														</Link>
+													</div>
+												)}
+											</div>
+										</CardBody>
+									</Card>
+								) : ""}
 							</Col>
 						</Row>
 					</Container>
