@@ -40,7 +40,7 @@ class NavigationBar extends Component {
 		selfLink = selfLink.concat(SessionUtil.getCurrentUser().username);
 
 		return SessionUtil.isLoggedIn() ? (
-			<Navbar color={color} dark={dark} light={light} expand={true}>
+			<Navbar color={color} dark={dark} light={light} expand={true} className="shadow-sm">
 				<Container>
 					<NavbarToggler onClick={this.toggle} />
 					<Collapse isOpen={this.state.isOpen} navbar>
@@ -128,7 +128,7 @@ class NavigationBar extends Component {
 									<img className="border border-white rounded" src={SessionUtil.getCurrentUser().avatar} alt={SessionUtil.getCurrentUser().username} style={{width: "32px",height: "32px"}}/>
 								</DropdownToggle>
 
-								<DropdownMenu right>
+								<DropdownMenu right className="fade">
 									<Link to={selfLink} className="dropdown-item">
 										<div className="font-weight-bold" style={{fontSize: "21px"}}>
 											{SessionUtil.getCurrentUser().displayName}
