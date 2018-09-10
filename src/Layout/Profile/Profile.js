@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Card, Row, Col, CardBody } from "reactstrap";
+import { Container, Card, Row, Col, CardBody, Alert } from "reactstrap";
 import axios from 'axios';
 import SessionUtil from "../../Util/Session/SessionUtil";
 import { Link, withRouter } from "react-router-dom";
@@ -49,6 +49,19 @@ class Profile extends Component {
 		const dateFormat = require("dateformat");
 
 		if(this.state.user !== null){
+			if(this.state.user.suspended === true){
+				return (
+					<div className="profile">
+						<Container className="mt-1">
+							<Alert style={{color: "#d7d8d8",backgroundColor: "#1d1e1f",borderColor: "#000"}}>
+								<h3>Account suspended</h3>
+								<p className="my-0">This account has been suspended.</p>
+							</Alert>
+						</Container>
+					</div>
+				);
+			}
+
 			return (
 				<div className="profile">
 					<Container className="mt-1">
