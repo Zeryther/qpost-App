@@ -1,0 +1,31 @@
+image: trion/ng-cli-karma
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+cache:
+  paths:
+    - node_modules/
+    - ~/.ssh/
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  - git submodule update --depth 50
+  - rm ./package-lock.json
+  - npm install
+  - CI=false npm run build
+  - cd build/
+  - rsync -avze ssh ./ ssh-gigadrivegroup@zeryther.lima-ssh.de:~/html/qpost-app/
+  - rsync -avze ssh ./ root@ssh.gigadrivegroup.com:/home/web/qpost-app/
+  only:
+    - master
