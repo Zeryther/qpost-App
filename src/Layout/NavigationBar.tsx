@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import SessionUtil from "../Util/Session/SessionUtil";
-import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from "reactstrap";
 import NightMode from "../Util/NightMode/NightMode";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, withRouter as _withRouter } from "react-router-dom";
 import VerifiedCheck from "./Profile/VerifiedCheck";
 
-class NavigationBar extends Component {
+class NavigationBar extends Component<any,any> {
 	constructor(props){
 		super(props);
 
@@ -28,14 +27,23 @@ class NavigationBar extends Component {
 		NightMode.toggle();
 	}
 
+	iconLinkName = name => {
+		let b = true;
+
+		b = false;
+		// TODO
+
+		return b ? "main-nav-link-active-big" : "main-nav-link-inactive-big";
+	}
+
 	render() {
-		let color = NightMode.isActive() ? "dark" : "light";
-		let dark = NightMode.isActive();
-		let light = !NightMode.isActive();
+		const color = NightMode.isActive() ? "dark" : "light";
+		const dark = NightMode.isActive();
+		const light = !NightMode.isActive();
 
-		let nightModeLabel = NightMode.isActive() ? "Disable night mode" : "Enable night mode";
+		const nightModeLabel = NightMode.isActive() ? "Disable night mode" : "Enable night mode";
 
-		let iconSize = "34px";
+		const iconSize = "34px";
 
 		let selfLink = "/";
 		selfLink = selfLink.concat(SessionUtil.getCurrentUser().username);
@@ -47,78 +55,78 @@ class NavigationBar extends Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						<Nav className="d-none d-md-flex" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("HOME")}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("NOTIFICATIONS")}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("SEARCH")}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("MESSAGES")}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 						</Nav>
 
 						<Nav className="d-none d-sm-flex d-md-none" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("HOME")}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("NOTIFICATIONS")}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("SEARCH")}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-big" : "main-nav-link-inactive-big"}>
-									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("MESSAGES")}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 						</Nav>
 
 						<Nav className="d-flex d-sm-none" navbar>
 							<Link to="/" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
-									<i className="fas fa-home" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("HOME")}>
+									<i className="fas fa-home" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/notifications" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/notifications" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
-									<i className="fas fa-bell" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("NOTIFICATIONS")}>
+									<i className="fas fa-bell" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/search" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/search" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
-									<i className="fas fa-search" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("SEARCH")}>
+									<i className="fas fa-search" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 
 							<Link to="/messages" className="mr-4">
-								<div className={this.context.router.route.location.pathname === "/messages" ? "main-nav-link-active-tiny" : "main-nav-link-inactive-tiny"}>
-									<i className="fas fa-envelope" style={{fontSize: iconSize}}></i>
+								<div className={this.iconLinkName("MESSAGES")}>
+									<i className="fas fa-envelope" style={{fontSize: iconSize}}/>
 								</div>
 							</Link>
 						</Nav>
@@ -143,15 +151,15 @@ class NavigationBar extends Component {
 									<DropdownItem divider />
 
 									<Link to={selfLink} className="dropdown-item">
-										<i className="far fa-user"></i> Profile
+										<i className="far fa-user"/> Profile
 									</Link>
 
 									<Link to="/notifications" className="dropdown-item">
-										<i className="far fa-bell"></i> Notifications
+										<i className="far fa-bell"/> Notifications
 									</Link>
 
 									<Link to="/messages" className="dropdown-item">
-										<i className="far fa-envelope"></i> Messages
+										<i className="far fa-envelope"/> Messages
 									</Link>
 
 									<DropdownItem divider />
@@ -181,10 +189,6 @@ class NavigationBar extends Component {
 			</Navbar>
 		) : null;
 	}
-}
-
-NavigationBar.contextTypes = {
-	router: PropTypes.object
 }
 	
 export default NavigationBar;

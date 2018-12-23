@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SessionUtil from "../../Util/Session/SessionUtil";
+import SessionUtil from "../Session/SessionUtil";
 
 class Logout extends Component {
 	render() {

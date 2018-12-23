@@ -3,7 +3,7 @@ import { Button } from "reactstrap";
 import SessionUtil from "../../Util/Session/SessionUtil";
 import { Link } from "react-router-dom";
 
-class FollowButton extends Component {
+class FollowButton extends Component<any,any> {
 	constructor(props){
 		super(props);
 
@@ -55,6 +55,8 @@ class FollowButton extends Component {
 				</Button>
 			);
 		}
+
+		return null;
 	}
 }
 

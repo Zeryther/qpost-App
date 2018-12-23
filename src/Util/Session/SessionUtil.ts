@@ -1,13 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
 class SessionUtil {
+	static currentUser: object;
+
 	static isLoggedIn(){
 		return this.getCurrentUserId() !== null && this.getSessionToken() !== null;
 	}
 
 	static validateLogin(callback){
-		let userID = this.getCurrentUserId();
-		let sesstoken = this.getSessionToken();
+		const userID = this.getCurrentUserId();
+		const sesstoken = this.getSessionToken();
 
 		if(this.isLoggedIn()){
 			axios.get("https://qpost.gigadrivegroup.com/api/token/verify",{ params: {token: sesstoken, user: userID} })
@@ -15,7 +17,7 @@ class SessionUtil {
 				const data = res.data;
 
 				if(data.hasOwnProperty("status")){
-					let status = data.status;
+					const status = data.status;
 
 					if(status !== "Token valid"){
 						this.logout();
@@ -68,7 +70,8 @@ class SessionUtil {
 		if(this.currentUser){
 			return this.currentUser;
 		} else {
-			return JSON.parse(localStorage.getItem("currentUser"));
+			const json = localStorage.getItem("currentUser");
+			return json !== null ? JSON.parse(json) : null;
 		}
 	}
 }

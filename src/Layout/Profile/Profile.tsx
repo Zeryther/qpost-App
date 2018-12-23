@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Container, Card, Row, Col, CardBody, Alert } from "reactstrap";
-import axios from 'axios';
+import axios from "axios";
 import SessionUtil from "../../Util/Session/SessionUtil";
 import { Link, withRouter } from "react-router-dom";
 import VerifiedCheck from "./VerifiedCheck";
 import FollowButton from "./FollowButton";
 
-class Profile extends Component {
+class Profile extends Component<any,any> {
 	constructor(props){
 		super(props);
 
@@ -43,7 +43,7 @@ class Profile extends Component {
 
 			if(user && user.hasOwnProperty("id")){
 				SessionUtil.updateCurrentUser(user);
-				this.setState({user: user});
+				this.setState({user});
 			} else {
 				this.setState({user: null,doesNotExist: true});
 			}
@@ -91,12 +91,12 @@ class Profile extends Component {
 
 										<div className="mt-3 text-muted">
 											<span className="mr-3">
-												<i className="fas fa-globe"></i> Joined {this.state.user.gigadriveJoinDate !== null ? dateFormat(new Date(this.state.user.gigadriveJoinDate),"mmmm yyyy") : dateFormat(new Date(this.state.user.joinDate),"mmmm yyyy")}
+												<i className="fas fa-globe"/> Joined {this.state.user.gigadriveJoinDate !== null ? dateFormat(new Date(this.state.user.gigadriveJoinDate),"mmmm yyyy") : dateFormat(new Date(this.state.user.joinDate),"mmmm yyyy")}
 											</span>
 
 											{this.state.user.birthday != null ? (
 												<span className="mr-3">
-													<i className="fas fa-birthday-cake"></i> {dateFormat(new Date(this.state.user.birthday),"mmmm dS yyyy")}
+													<i className="fas fa-birthday-cake"/> {dateFormat(new Date(this.state.user.birthday),"mmmm dS yyyy")}
 												</span>
 											) : ""}
 										</div>
@@ -124,11 +124,11 @@ class Profile extends Component {
 								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
 									<Card className="mb-2 d-flex d-lg-none">
 										<CardBody>
-											<h6 class="my-0"><i className="far fa-user text-muted"></i> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
+											<h6 className="my-0"><i className="far fa-user text-muted"/> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
 
 											<div className="d-inline-block">
 												{this.state.user.followersYouKnow.map((user,i) =>
-													<div className="float-left mt-1 mr-1">
+													<div className="float-left mt-1 mr-1" key={user.id}>
 														<Link to={"/" + user.username} className="clearUnderline">
 															<img src={user.avatar} className="rounded" style={{width: "56px",height: "56px"}} alt={user.displayName + " (@" + user.username + ")"}/>
 														</Link>
@@ -144,13 +144,13 @@ class Profile extends Component {
 								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
 									<Card className="mb-2">
 										<CardBody>
-											<h6 class="my-0"><i className="far fa-user text-muted"></i> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
+											<h6 className="my-0"><i className="far fa-user text-muted"/> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
 
 											<div className="d-inline-block">
 												{this.state.user.followersYouKnow.map((user,i) => {
 													SessionUtil.updateCurrentUser(this.state.user);
 
-													return (<div className="float-left mt-1 mr-1">
+													return (<div className="float-left mt-1 mr-1" key={user.id}>
 														<Link to={"/" + user.username} className="clearUnderline">
 															<img src={user.avatar} className="rounded" style={{width: "56px",height: "56px"}} alt={user.displayName + " (@" + user.username + ")"}/>
 														</Link>
@@ -181,7 +181,7 @@ class Profile extends Component {
 				<div className="profile">
 					<Container className="mt-3">
 						<div className="text-center">
-							<i className="fas fa-spinner fa-pulse" style={{fontSize: "48px"}}></i>
+							<i className="fas fa-spinner fa-pulse" style={{fontSize: "48px"}}/>
 						</div>
 					</Container>
 				</div>

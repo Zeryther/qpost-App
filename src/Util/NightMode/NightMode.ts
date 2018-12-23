@@ -1,6 +1,6 @@
 class NightMode {
 	static isActive(){
-		let storedVal = localStorage.getItem("nightMode");
+		const storedVal = localStorage.getItem("nightMode");
 
 		return storedVal && storedVal === "true" ? true : false;
 	}

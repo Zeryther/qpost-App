@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Button, Form, Label, Input, Alert } from 'reactstrap';
+import { Button, Form, Label, Input, Alert } from "reactstrap";
 import './Login.css';
-import Logo from '../../img/qpost-blue-small.png';
-import axios from 'axios';
-import SessionUtil from '../../Util/Session/SessionUtil';
+import Logo from "../../img/qpost-blue-small.png";
+import axios from "axios";
+import SessionUtil from "../../Util/Session/SessionUtil";
 
-class Login extends Component {
+class Login extends Component<any,any> {
 	constructor(props){
 		super(props);
 		
@@ -62,24 +62,30 @@ class Login extends Component {
 							}
 						});
 					} else if(data.hasOwnProperty("error")){
-						document.getElementById("login-error-alert").classList.remove("d-none");
-						document.getElementById("login-error-alert").innerHTML = data.error;
+						const errorAlert = document.getElementById("login-error-alert");
 
-						setTimeout(() => {
-							document.getElementById("login-error-alert").classList.add("d-none");
-						}, 5*1000);
-						this.setState({loginInProgress: false});
+						if(errorAlert !== null){
+							errorAlert.classList.remove("d-none");
+							errorAlert.innerHTML = data.error;
+
+							setTimeout(() => {
+								if(errorAlert !== null){
+									errorAlert.classList.add("d-none");
+								}
+							}, 5*1000);
+							this.setState({loginInProgress: false});
+						}
 					}
 				});
 		}
 	}
 
 	handleCreateAccount = event => {
-
+		// TODO
 	}
 	
 	render() {
-		let year = (new Date()).getFullYear();
+		const year = (new Date()).getFullYear();
 
 		let copyrightNotice = "© " + year + " Gigadrive Group";
 		if(year !== 2018){

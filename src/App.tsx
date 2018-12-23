@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import Login from './Layout/Login/Login';
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import SessionUtil from './Util/Session/SessionUtil';
-import HomeFeed from './Layout/HomeFeed/HomeFeed';
-import Logout from './Util/Logout/Logout';
-import Notifications from './Layout/Notifications/Notifications';
-import Messages from './Layout/Messages/Messages';
-import Search from './Layout/Search/Search';
-import Profile from './Layout/Profile/Profile';
-import NavigationBar from './Layout/NavigationBar';
+import Login from "./Layout/Login/Login";
+import SessionUtil from "./Util/Session/SessionUtil";
+import HomeFeed from "./Layout/HomeFeed/HomeFeed";
+import Logout from "./Util/Logout/Logout";
+import Notifications from "./Layout/Notifications/Notifications";
+import Messages from "./Layout/Messages/Messages";
+import Search from "./Layout/Search/Search";
+import Profile from "./Layout/Profile/Profile";
+import NavigationBar from "./Layout/NavigationBar";
 
-class App extends Component {
+class App extends Component<any,any> {
 	constructor(props){
 		super(props);
 		
