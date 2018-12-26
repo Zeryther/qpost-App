@@ -1,3 +1,11 @@
+html,body,#root {
+	height: 100%;
+}
+
+.vertical-center {
+	padding-top: 20%;
+}
+
 .main-nav-link-inactive {
 	color: #657786 !important;
 

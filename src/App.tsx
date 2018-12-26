@@ -9,33 +9,30 @@ import Messages from "./Layout/Messages/Messages";
 import Search from "./Layout/Search/Search";
 import Profile from "./Layout/Profile/Profile";
 import NavigationBar from "./Layout/NavigationBar";
+import LoadingScreen from './LoadingScreen';
 
 class App extends Component<any,any> {
 	constructor(props){
 		super(props);
 		
 		this.state = {
-			validatingLogin: false
+			validatingLogin: true
 		};
 	}
 
 	componentWillMount(){
-		if(this.state.validatingLogin === false){
-			this.setState({validatingLogin: true});
+		Util.validateLogin(() => {
+			this.setState({validatingLogin: false});
 
-			Util.validateLogin(() => {
-				this.setState({validatingLogin: false});
-
-				if(!Util.isLoggedIn()){
-					window.location.href = "/";
-				}
-			});
-		}
+			if(!Util.isLoggedIn()){
+				window.location.href = "/";
+			}
+		});
 	}
 
 	render() {
 		if(Util.isLoggedIn()){
-			return (
+			return !this.state.validatingLogin && Util.isLoggedIn() ? (
 				<Router>
 					<div className="router">
 						<NavigationBar/>
@@ -50,7 +47,7 @@ class App extends Component<any,any> {
 						</Switch>
 					</div>
 				</Router>
-			);
+			) : <LoadingScreen/>;
 		} else {
 			return (
 				<Router>
