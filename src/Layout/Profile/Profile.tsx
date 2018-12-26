@@ -87,7 +87,7 @@ class Profile extends Component<any,any> {
 
 										<div className="mt-3 text-muted">
 											<span className="mr-3">
-												<i className="fas fa-globe"/> Joined {this.state.user.gigadriveJoinDate !== null ? dateFormat(new Date(this.state.user.gigadriveJoinDate),"mmmm yyyy") : dateFormat(new Date(this.state.user.joinDate),"mmmm yyyy")}
+												<i className="fas fa-globe"/> Joined {dateFormat(new Date(this.state.user.joinDate),"mmmm yyyy")}
 											</span>
 
 											{this.state.user.birthday != null ? (
