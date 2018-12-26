@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import SessionUtil from "../Session/SessionUtil";
+import Util from "../Util";
 
 class Logout extends Component {
 	render() {
-		SessionUtil.logout();
+		Util.logout();
 		
 		return (
 			<div className="logout">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
-import SessionUtil from "../../Util/Session/SessionUtil";
+import Util from "../../Util/Util";
 import { Link } from "react-router-dom";
 
 class FollowButton extends Component<any,any> {
@@ -18,9 +18,9 @@ class FollowButton extends Component<any,any> {
 	};
 
 	render() {
-		SessionUtil.updateCurrentUser(this.state.user);
+		Util.updateCurrentUser(this.state.user);
 
-		if(this.state.user.id === SessionUtil.getCurrentUser().id){
+		if(this.state.user.id === Util.getCurrentUser().id){
 			// EDIT PROFILE
 
 			return (

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Container, Card, Row, Col, CardBody, Alert } from "reactstrap";
-import axios from "axios";
-import SessionUtil from "../../Util/Session/SessionUtil";
 import { Link, withRouter } from "react-router-dom";
 import VerifiedCheck from "./VerifiedCheck";
 import FollowButton from "./FollowButton";
+import Util from '../../Util/Util';
 
 class Profile extends Component<any,any> {
 	constructor(props){
@@ -37,12 +36,9 @@ class Profile extends Component<any,any> {
 	}
 
 	fetch = () => {
-		axios.get("https://qpost.gigadrivegroup.com/api/user/info",{params: {token: SessionUtil.getSessionToken(), user: this.props.match.params.query}})
-		.then(res => {
-			const user = res.data;
-
+		Util.handleRequest("/api/user/info","GET",{user: this.props.match.params.query},user => {
 			if(user && user.hasOwnProperty("id")){
-				SessionUtil.updateCurrentUser(user);
+				Util.updateCurrentUser(user);
 				this.setState({user});
 			} else {
 				this.setState({user: null,doesNotExist: true});
@@ -148,7 +144,7 @@ class Profile extends Component<any,any> {
 
 											<div className="d-inline-block">
 												{this.state.user.followersYouKnow.map((user,i) => {
-													SessionUtil.updateCurrentUser(this.state.user);
+													Util.updateCurrentUser(this.state.user);
 
 													return (<div className="float-left mt-1 mr-1" key={user.id}>
 														<Link to={"/" + user.username} className="clearUnderline">

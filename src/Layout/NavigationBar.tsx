@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SessionUtil from "../Util/Session/SessionUtil";
+import Util from "../Util/Util";
 import { Collapse, Navbar, NavbarToggler, Nav, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from "reactstrap";
 import NightMode from "../Util/NightMode/NightMode";
 import { Link, withRouter as _withRouter } from "react-router-dom";
@@ -46,9 +46,9 @@ class NavigationBar extends Component<any,any> {
 		const iconSize = "34px";
 
 		let selfLink = "/";
-		selfLink = selfLink.concat(SessionUtil.getCurrentUser().username);
+		selfLink = selfLink.concat(Util.getCurrentUser().username);
 
-		return SessionUtil.isLoggedIn() ? (
+		return Util.isLoggedIn() ? (
 			<Navbar color={color} dark={dark} light={light} expand={true} className="shadow-sm">
 				<Container>
 					<NavbarToggler onClick={this.toggle} />
@@ -134,17 +134,17 @@ class NavigationBar extends Component<any,any> {
 						<Nav className="ml-auto" navbar>
 							<UncontrolledDropdown nav inNavbar>
 								<DropdownToggle nav>
-									<img className="border border-white rounded" src={SessionUtil.getCurrentUser().avatar} alt={SessionUtil.getCurrentUser().username} style={{width: "32px",height: "32px"}}/>
+									<img className="border border-white rounded" src={Util.getCurrentUser().avatar} alt={Util.getCurrentUser().username} style={{width: "32px",height: "32px"}}/>
 								</DropdownToggle>
 
 								<DropdownMenu right className="fade">
 									<Link to={selfLink} className="dropdown-item">
 										<div className="font-weight-bold" style={{fontSize: "21px"}}>
-											{SessionUtil.getCurrentUser().displayName}<VerifiedCheck status={SessionUtil.getCurrentUser().verified}/>
+											{Util.getCurrentUser().displayName}<VerifiedCheck status={Util.getCurrentUser().verified}/>
 										</div>
 
 										<div className="text-muted" style={{marginTop: "-8px"}}>
-											@{SessionUtil.getCurrentUser().username}
+											@{Util.getCurrentUser().username}
 										</div>
 									</Link>
 

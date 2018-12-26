@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./Layout/Login/Login";
-import SessionUtil from "./Util/Session/SessionUtil";
+import Util from "./Util/Util";
 import HomeFeed from "./Layout/HomeFeed/HomeFeed";
 import Logout from "./Util/Logout/Logout";
 import Notifications from "./Layout/Notifications/Notifications";
@@ -23,10 +23,10 @@ class App extends Component<any,any> {
 		if(this.state.validatingLogin === false){
 			this.setState({validatingLogin: true});
 
-			SessionUtil.validateLogin(() => {
+			Util.validateLogin(() => {
 				this.setState({validatingLogin: false});
 
-				if(!SessionUtil.isLoggedIn()){
+				if(!Util.isLoggedIn()){
 					window.location.href = "/";
 				}
 			});
@@ -34,7 +34,7 @@ class App extends Component<any,any> {
 	}
 
 	render() {
-		if(SessionUtil.isLoggedIn()){
+		if(Util.isLoggedIn()){
 			return (
 				<Router>
 					<div className="router">
