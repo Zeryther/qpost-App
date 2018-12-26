@@ -118,7 +118,7 @@ class Profile extends Component<any,any> {
 								</Card>
 
 								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
-									<Card className="mb-2 d-flex d-lg-none">
+									<Card className="mb-2 d-block d-lg-none">
 										<CardBody>
 											<h6 className="my-0"><i className="far fa-user text-muted"/> {this.state.user.followersYouKnow.length} follower{this.state.user.followersYouKnow.length !== 1 ? "s" : ""} you know</h6>
 
@@ -136,7 +136,7 @@ class Profile extends Component<any,any> {
 								) : ""}
 							</Col>
 
-							<Col lg="4" className="d-none d-lg-flex">
+							<Col lg="4" className="d-none d-lg-block">
 								{this.state.user.followersYouKnow && this.state.user.followersYouKnow.length > 0 ? (
 									<Card className="mb-2">
 										<CardBody>
